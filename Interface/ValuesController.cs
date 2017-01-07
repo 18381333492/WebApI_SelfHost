@@ -15,6 +15,9 @@ namespace Interface
 
     /******
      *  Web API 的自宿主技术,可以将API寄宿在 windows from程序，windows控制台程序，还有windowsServices里面-可以不再依赖IIS
+     *  注意：这是寄宿在一个单独独立的进程.不想IIS多线程.
+     *  因此:多个请求时候不是每一个单独的进程.都是同步的进程
+     *  所有要实现了多进程的方式，在每个APIController 方法上面加上aynsc
      *  
      *  需要引用的package:(Microsoft.AspNet.WebApi.SelfHost) 程序集引用:System.Web.Http.SelfHost
      *  
